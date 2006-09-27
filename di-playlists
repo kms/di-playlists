@@ -1,0 +1,29 @@
+#!/bin/bash
+
+while (true);do
+date | tr "\n" " "
+echo -n ":  Fetching"
+START=`date +%s.%N`
+wget -q -O /tmp/di-playlists.xml http://www.di.fm/partners/xml/playlists.xml
+END=`date +%s.%N`
+TOTAL=`echo $END $START | awk '{printf("%6.3f\n", $1-$2)}'`
+#cp /tmp/di-playlists.xml $HOME/di/playlists-`date | tr " " "_"`.xml
+echo -n " ($TOTAL s.) "
+
+echo -n "Transforming"
+START=`date +%s.%N`
+xalan -q -in file:/tmp/di-playlists.xml -xsl di-playlists-rss10.xsl -out /tmp/di-playlists-rss10.xml
+xalan -q -in file:/tmp/di-playlists.xml -xsl di-playlists-rss10-verbose.xsl -out /tmp/di-playlists-rss10-verbose.xml
+xalan -q -in file:/tmp/di-playlists.xml -xsl di-playlists-text.xsl -out /tmp/di-playlists.txt
+END=`date +%s.%N`
+TOTAL=`echo $END $START | awk '{printf("%6.3f\n", $1-$2)}'`
+echo -n " ($TOTAL s.) "
+
+mv /tmp/di-playlists-rss10.xml ../di/di-playlists-rss10.xml
+mv /tmp/di-playlists-rss10-verbose.xml ../di/di-playlists-rss10-verbose.xml
+mv /tmp/di-playlists.txt ../di/di-playlists.txt
+
+echo
+
+sleep 30
+done
