@@ -1,7 +1,9 @@
 <?xml version="1.0"?>
-<!-- Transform Digitally Imported (http://www.di.fm/) playlists
-     into RSS 1.0 feed. -->
-<!-- (c) Karl-Martin Skontorp <kms@skontorp.net> -->
+<!-- di-playlists -->
+<!-- Transform Digitally Imported playlists into RSS 1.0 feeds. --> 
+<!-- -->
+<!-- (c) Karl-Martin Skontorp kms@skontorp.net ~ http://picofarad.org/ -->
+<!-- Licensed under the GNU GPL 2.0 or later. -->
 
 <xsl:stylesheet version="1.0" 
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"

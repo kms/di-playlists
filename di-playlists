@@ -1,4 +1,9 @@
 #!/bin/bash
+# di-playlists
+# Transform Digitally Imported playlists into RSS 1.0 feeds.
+# 
+# (c) Karl-Martin Skontorp <kms@skontorp.net> ~ http://picofarad.org/
+# Licensed under the GNU GPL 2.0 or later.
 
 while (true);do
 date | tr "\n" " "
