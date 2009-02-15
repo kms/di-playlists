@@ -20,11 +20,11 @@
                 <link>http://www.di.fm/</link>
                 <description>
                     Playlists for the Digitally Imported radio stations. With
-		    links to discussion forum.
+                    links to discussion forum.
                 </description>
-		<dc:date>
-		    <xsl:value-of select="document('http://xml.skontorp.net/misc/datetime.php')/datetime/full-iso8601" />
-		</dc:date>
+                <dc:date>
+                    <xsl:value-of select="document('http://xml.skontorp.net/misc/datetime.php')/datetime/full-iso8601" />
+                </dc:date>
             </channel>
             <xsl:apply-templates select="/PLAYLISTS/CHANNELS/CHANNEL" />
         </rdf:RDF>
@@ -35,15 +35,15 @@
             <title>
                 <xsl:text>[</xsl:text>
                 <xsl:value-of select="CHANNELTITLE" />
-	        <xsl:text>] </xsl:text>
-	        <xsl:value-of select="TRACKS/TRACK/TRACKTITLE" />
+                <xsl:text>] </xsl:text>
+                <xsl:value-of select="TRACKS/TRACK/TRACKTITLE" />
                 <xsl:text> (</xsl:text>
                 <xsl:value-of select="TRACKS/TRACK/BOARDCOUNT" />
-	        <xsl:text>)</xsl:text>
+                <xsl:text>)</xsl:text>
             </title>
-	    <link>
-	        <xsl:value-of select="TRACKS/TRACK/TRACKURL" />
-	    </link>
+            <link>
+                <xsl:value-of select="TRACKS/TRACK/TRACKURL" />
+            </link>
         </item>
     </xsl:template>
 

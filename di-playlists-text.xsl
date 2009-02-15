@@ -6,25 +6,25 @@
 <!-- Licensed under the GNU GPL 2.0 or later. -->
 
     <xsl:stylesheet version="1.0" 
-	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+        xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-	<xsl:output method="text" indent="no" />
+        <xsl:output method="text" indent="no" />
 
-	<xsl:template match="/">
-	    <xsl:value-of select="document('http://xml.skontorp.net/misc/datetime.php')/datetime/full-iso8601" />
+        <xsl:template match="/">
+            <xsl:value-of select="document('http://xml.skontorp.net/misc/datetime.php')/datetime/full-iso8601" />
 <xsl:text>
 
 </xsl:text>
-	    <xsl:apply-templates select="/PLAYLISTS/CHANNELS/CHANNEL" />
-	</xsl:template>
+            <xsl:apply-templates select="/PLAYLISTS/CHANNELS/CHANNEL" />
+        </xsl:template>
 
-	<xsl:template match="/PLAYLISTS/CHANNELS/CHANNEL">
+        <xsl:template match="/PLAYLISTS/CHANNELS/CHANNEL">
 <xsl:text>[</xsl:text>
 <xsl:value-of select="CHANNELTITLE" />
 <xsl:text>] </xsl:text>
 <xsl:value-of select="TRACKS/TRACK/TRACKTITLE" />
 <xsl:text>
 </xsl:text>
-	</xsl:template>
+        </xsl:template>
 
     </xsl:stylesheet>
